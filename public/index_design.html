@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Job Tool</title>
+
+	<!-- Bootswatch -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+	<!-- Font-Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<!-- Navbar -->
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">JobTool.com</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">Job Console</a></li>
+						<li><a href="#">Search</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+
+
+		<!-- Jumbotron -->
+		<!--<div class="jumbotron">
+			<h2 class="text-center" style="text-decoration: underline"><strong>JobTool</strong></h2>
+			<h3 class="text-center">Your Job Search Organizer. </h3>
+		</div>-->
+
+		<div class="row">
+			<div class="col-md-8">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title"><strong>Search Jobs</strong></h1>
+					</div>
+					<div class="panel-body">
+
+
+						<form class="form-inline">
+							<div class="form-group">
+								<label for="jobTitle">Job Title:</label>
+								<input type="text" class="form-control" id="jobTitle" />
+							</div>
+							<div class="form-group">
+								<label for="location">Location:</label>
+								<input type="text" class="form-control" id="location" /> 
+							</div>
+								<!--search-start = location-->
+<!--
+								<h4 class=""><strong>End Year</strong></h4>
+								<input type="text" class="form-control " id="search_end" />-->
+
+
+								<button type="submit" class="btn btn-default">Submit</button>
+
+						</form>
+
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title"><strong>Job Results</strong></h1>
+					</div>
+					<div class="panel-body">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title ">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <span>Job Title - Company - Location - Date Published<span>
+        </a>
+   
+			<a href="#" class="btn-xs btn-default" style="float:right;">Apply Later</a>
+			<a href="#" class="btn-xs btn-default" style="float:right;">Apply Now</a>
+	
+   </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+					</div>
+				</div>
+			</div>
+	
+
+
+			<div class="col-md-4">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title"><strong>Saved Jobs</strong></h1>
+
+					</div>
+					<div class="panel-body">
+				
+							<a href="#" class="btn  btn-block btn-primary" role="button">Manually Add Job</a>
+						
+						<div class="col-xs-12">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<h3>UI/UX Designer</h3>
+									<span>Company - San Antonio, TX - Fulltime</span>
+								</li>
+								<li class="list-group-item">
+									<h3>UI/UX Designer</h3>
+									<span>Company - San Antonio, TX - Fulltime</span>
+								</li>
+								<li class="list-group-item">
+									<h3>UI/UX Designer</h3>
+									<span>Company - San Antonio, TX - Fulltime</span>
+								</li>
+								<li class="list-group-item">
+									<h3>UI/UX Designer</h3>
+									<span>Company - San Antonio, TX - Fulltime</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+	</div>
+
+
+</body>
+</html>

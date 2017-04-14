@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Job Tool</title>
+
+	<!--Indeed Tracking-->
+	<script type="text/javascript" src="https://gdc.indeed.com/ads/apiresults.js"></script>
+	
+	<!-- Bootswatch -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+	<!-- Font-Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!--get user agent and ip -->
+	<script>
+	$(document).ready(function(){   
+  // Check if they have been logged
+		// if ($.cookie('logged') == null ){
+			// Send screen size and whatever else that is not available from headers
+			$.post('/logger', { width: screen.width, height: screen.height }, function(res) {
+			// Set cookie  for 30 days so we don't keep doing this
+			// $.cookie('logged', true, { expires: 30 }); 
+    		});
+  		// } 
+ 	});  
+ </script>
+
+</head>
+
+<body>
+
+	<!-- This is where React will deploy the contents it generates -->
+	<div id="app"></div>
+
+	
+<!--<span id="indeed_at"><a title="Job Search" href="https://www.indeed.com" rel="nofollow" >jobs by <img alt=Indeed src="https://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;"></a></span>-->
+	<!-- All of our JS code will be transpiled into this bundle.js file -->
+	<script src="bundle.js"></script>
+
+</body>
+</html>
