@@ -5,29 +5,30 @@ var React = require("react");
 var helpers = require("../../utils/helpers");
 
 // Results Component Declaration
-var Results = React.createClass({
+class Results extends React.Component {
 
   // Here we will save states for the contents we save
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props)
+    this.state =  { 
       title: "",
       url: "",
       pubdate: ""
     };
-  },
+  }
 
   // This code handles the sending of the search terms to the parent Search component
-  handleClick: function(item) {
+  handleClick() {
     console.log("CLICKED");
     console.log(item);
 
     // helpers.postSaved(item.headline.main, item.pub_date, item.web_url).then(function() {
     //   console.log(item.web_url);
     // });
-  },
+  }
 
   // A helper method for mapping through our articles and outputting some HTML
-  renderArticles: function() {
+  renderArticles() {
     return this.props.results.docs.map(function(job, index) {
 
       // Each article thus reperesents a list group item with a known index
@@ -59,35 +60,42 @@ var Results = React.createClass({
 
     }.bind(this));
 
-  },
+  }
 
   // A helper method for rendering a container to hold all of our articles
-  renderContainer: function() {
+  renderContainer() {
+    return this.props.results.docs.map(function(job, index){
+     console.log(job.snippet);
+     var snippet = job.snippet;
+    snippet=snippet.replace(/<[a-zA-Z\/][^>]*>/g, '');
+    console.log(snippet);
+     
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="panel panel-primary">
-              <div className="panel-heading">
-                <h1 className="panel-title">
-                  <strong>
-                    <i className="fa fa-list-alt"></i>
-                    Results
-                  </strong>
-                </h1>
-              </div>
-              <div className="panel-body">
-                <ul className="list-group">
-                  {this.renderArticles()}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
-  render: function() {
+                <div className="panel panel-default" key={index}>
+                  <div className="panel-heading">
+                      <h4 className="panel-title">
+                       {job.jobtitle} - {job.company} - {job.formattedLocation}  - {job.formattedRelativeTime}
+                 
+                      </h4>
+                  </div>
+                  <div className="panel-body">
+                     <p>{snippet}</p>
+                          <a href="#" className="btn-xs btn-default" style={{float:"right"}} data-id={job.jobkey}>Applied</a>
+
+                          <a href="#" className="btn-xs btn-default" style={{float:"right"}} data-id={job.jobkey}>Apply Later</a>
+                      
+                          <a href={job.url} className="btn-xs btn-primary" target="_blank" style={{float:"right"}} data-id={job.jobkey}>Apply Now</a>
+                  
+
+                  </div>
+                </div>
+              
+               )  
+              }.bind(this));
+  }
+  
+
+  render() {
     // If we have no articles, render this HTML
     if (!this.props.results.docs) {
       return (
@@ -108,9 +116,20 @@ var Results = React.createClass({
       );
     }
     // If we have articles, return this.renderContainer() which in turn, returns all the articles
-    return this.renderContainer();
-  }
-});
+    return (
+        <div className="panel panel-primary">
+					<div className="panel-heading">
+						<h1 className="panel-title"><strong>Job Results</strong></h1>
+					</div>
+					<div className="panel-body">
+          
+                {this.renderContainer()};
+      
+          </div>
+        </div>
+    )
+}
+};
 
 // Export the module back to the route
 module.exports = Results;

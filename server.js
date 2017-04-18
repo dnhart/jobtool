@@ -6,6 +6,8 @@ var mongoose = require("mongoose");
 
 // Require Schemas
 var Job = require("./server/model");
+//comment out var data when going live ++++++++
+var data = require('./jobs.json');
 
 // Create Instance of Express
 var app = express();
@@ -35,9 +37,10 @@ db.once("open", function() {
 });
 
 
+
 // -------------------------------------------------
-//Route to get users agent and IP
-app.post("/logger", function(req, res) {
+//Route to get users agent and IP 
+app.post("/logger",function(req, res, next) {
   var user = {
     agent: req.headers['user-agent'], // User Agent we get from headers
     referrer: req.headers['referrer'], //  Likewise for referrer
@@ -50,6 +53,12 @@ app.post("/logger", function(req, res) {
   // Store the user in your database
   // User.create(user)...
     res.send(user);
+});
+
+
+//comment out this when going live ++++++++++
+app.get("/logger", function(req, res) {
+  res.send(data);
 });
 
 

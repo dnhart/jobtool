@@ -54,7 +54,7 @@ var Query = React.createClass({
                     <label htmlFor="jobTitle">Job Title: </label>
                     <input
                       type="text"
-                      value={this.state.jobTitle}
+                      value={this.state.jobTitle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}
                       className="form-control"
                       id="jobTitle"
                       onChange={this.handleChange}
@@ -64,7 +64,7 @@ var Query = React.createClass({
                     <label htmlFor="location">Location: </label>
                     <input
                       type="text"
-                      value={this.state.location}
+                      value={this.state.location.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}
                       className="form-control"
                       id="location"
                       onChange={this.handleChange}

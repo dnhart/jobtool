@@ -27,7 +27,7 @@ var Search = React.createClass({
   // to perform a new search
   setQuery: function(newQuery, newLocation) {
     helpers.runQuery(newQuery, newLocation).then(function(data) {
-      this.setState({ results: { docs: data.docs } });
+      this.setState({ results: { docs: data } });
     }.bind(this));
   },
 
