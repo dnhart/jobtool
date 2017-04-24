@@ -1,13 +1,20 @@
 // Include React as a dependency
-var React = require("react");
+import React, { PropTypes as T, Component } from 'react'
 // Including the Link component from React Router to navigate within our application without full page reloads
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
-var Link = require("react-router").Link;
-
+// var Link = require("react-router").Link;
+import {Link} from 'react-router'
 // Create the Main component
-var Main = React.createClass({
-
-  render: function() {
+// var Main = React.createClass({
+export class Main extends Component{
+  
+  render() {
+    let children = null;
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, {
+        auth: this.props.route.auth //sends auth instance from route to children
+      })
+    }
 
     return (
       // We can only render a single div. So we need to group everything inside of this main-container one
@@ -47,8 +54,7 @@ var Main = React.createClass({
 
           {/* Here we will deploy the sub components (Search or Saved */}
           {/* These sub-components are getting passed as this.props.children */}
-          {this.props.children}
-
+          {children}
         </div>
       </div>
           <footer>
@@ -61,7 +67,8 @@ var Main = React.createClass({
       </div>
     );
   }
-});
+};
 
 // Export the module back to the route
-module.exports = Main;
+// module.exports = Main;
+export default Main;

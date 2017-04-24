@@ -1,41 +1,43 @@
 // Inclue the React library
-var React = require("react");
+import React from 'react'
 
 // Include the react-router module
-var router = require("react-router");
-
-// Include the Route component
-var Route = router.Route;
-
-//  Include the IndexRoute (catch-all route)
-var IndexRoute = router.IndexRoute;
-
-// Include the Router component
-var Router = router.Router;
-
+import { Router, Route, IndexRedirect, IndexRoute } from 'react-router'
+import AuthService from '../utils/AuthService'
 // Include the browserHistory prop to configure client side routing
 // https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#browserhistory
-var browserHistory = router.browserHistory;
+import { browserHistory } from 'react-router'
 
 // Reference the high-level components
-var Main = require("../components/Main");
-var Search = require("../components/Search");
-var Saved = require("../components/Saved");
+import Main from '../components/Main'
+import Search from '../components/Search'
+import Saved from '../components/Saved'
+import Login from '../components/Login/Login'
 
+const auth = new AuthService('3LCamZNP5ZoREfq5p7sSJapryQ3D7S8y', 'dnhart.auth0.com');
 
-// Export the Routes
-module.exports = (
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({ pathname: '/login' })
+  }
+}
+
+export const makeMainRoutes = () => {
+  return (
   // High level component is the Router component.
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+    <Route path="/" component={Main} auth={auth}>
 
       {/* If user selects Search or Saved show the appropriate component */}
-      <Route path="Search" component={Search} />
-      <Route path="Saved" component={Saved} />
+      <Route path="Search" component={Search} onEnter={requireAuth} />
+      <Route path="Saved" component={Saved}  />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />
-
+      <Route path="login" component={Login} />
     </Route>
   </Router>
-);
+  )
+}
+
+export default makeMainRoutes
