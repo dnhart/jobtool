@@ -123,7 +123,7 @@ class Results extends React.Component {
 					</div>
 					<div className="panel-body">
           
-                {this.renderContainer()};
+                {this.renderContainer()}
       
           </div>
         </div>

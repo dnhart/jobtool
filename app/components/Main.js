@@ -3,10 +3,31 @@ import React, { PropTypes as T, Component } from 'react'
 // Including the Link component from React Router to navigate within our application without full page reloads
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 // var Link = require("react-router").Link;
+import AuthService from '../utils/AuthService';
 import {Link} from 'react-router'
+
+
 // Create the Main component
 // var Main = React.createClass({
 export class Main extends Component{
+  
+  //   constructor(props, context) {
+  //   super(props, context)
+  //   this.state = {
+  //     profile: props.auth.getProfile()
+  //   }
+  //   props.auth.on('profile_updated', (newProfile) => {
+  //     this.setState({profile: newProfile})
+  //   })
+  // }
+
+  logout(){
+    const { auth } = T.instanceOf(AuthService)
+    this.props.auth.logout()
+    this.context.router.push('/login');
+  }
+
+
   
   render() {
     let children = null;
@@ -18,7 +39,7 @@ export class Main extends Component{
 
     return (
       // We can only render a single div. So we need to group everything inside of this main-container one
-      <div className="main-container">
+<div className="main-container">
     
 	<div className="container">
 
@@ -42,6 +63,7 @@ export class Main extends Component{
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Job Console</a></li>
 						<li><a href="#">Search</a></li>
+            <li><a href=""  onClick={this.logout.bind(this)}>Logout</a></li>
 					</ul>
 				</div>     
 			</div>
@@ -68,6 +90,10 @@ export class Main extends Component{
     );
   }
 };
+
+// Main.propTypes = {
+//    auth: T.instanceOf(AuthService)
+//   }
 
 // Export the module back to the route
 // module.exports = Main;

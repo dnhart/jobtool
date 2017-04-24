@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Main from './components/Main'
+import App from './components/App'
 // Grabs the Routes
 import {browserHistory} from 'react-router'
 import makeRoutes from './routes'
@@ -18,6 +19,11 @@ const routes = makeRoutes()
 
 const mountNode = document.querySelector('#app');
 ReactDOM.render(
-  <Main history={browserHistory}
+  <App history={browserHistory}
         routes={routes} />,
 mountNode);
+
+
+
+//  history={browserHistory}
+//         routes={routes}
