@@ -91,9 +91,9 @@ export class Main extends Component{
   }
 };
 
-// Main.propTypes = {
-//    auth: T.instanceOf(AuthService)
-//   }
+Main.propTypes = {
+   auth: T.instanceOf(AuthService)
+  }
 
 // Export the module back to the route
 // module.exports = Main;
